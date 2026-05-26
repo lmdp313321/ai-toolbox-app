@@ -302,8 +302,10 @@ class ApiProvider extends ChangeNotifier {
         model: 'meta/llama-3.1-405b-instruct',
         sort: 6,
       ),
-    ];
-  }eUrl: 'https://api.openai.com/v1',
+      ApiConfig(
+        id: 'openai',
+        name: 'OpenAI',
+        baseUrl: 'https://api.openai.com/v1',
         model: 'gpt-4o-mini',
         sort: 3,
       ),
