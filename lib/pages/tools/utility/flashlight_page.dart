@@ -31,7 +31,7 @@ class _FlashlightPageState extends State<FlashlightPage> {
                   shape: BoxShape.circle,
                   color: _isOn ? Colors.yellow.shade600 : Colors.grey.shade300,
                   boxShadow: _isOn
-                      ? [BoxShadow(color: Colors.yellow.withValues(alpha: 0.5), blurRadius: 50, spreadRadius: 20)]
+                      ? [BoxShadow(color: Colors.yellow.withOpacity(0.5), blurRadius: 50, spreadRadius: 20)]
                       : [],
                 ),
                 child: Icon(

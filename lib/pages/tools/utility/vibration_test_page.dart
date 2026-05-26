@@ -39,7 +39,7 @@ class _VibrationTestPageState extends State<VibrationTestPage> {
                     ),
                   ),
                   ListTile(
-                    leading: const Icon(Icons.heavy),
+                    leading: const Icon(Icons.fitness_center),
                     title: const Text('重触反馈'),
                     trailing: ElevatedButton(
                       onPressed: () => HapticFeedback.heavyImpact(),

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
@@ -36,7 +37,7 @@ class _IpQueryPageState extends State<IpQueryPage> {
       final request = await client.getUrl(Uri.parse('https://api.ipify.org'));
       final response = await request.close();
       if (response.statusCode == 200) {
-        final ip = await response.transform(const Utf8Decoder()).join();
+        final ip = await response.transform(utf8.decoder).join();
         setState(() => _publicIp = ip.trim());
       }
       client.close();

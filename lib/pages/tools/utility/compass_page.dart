@@ -120,11 +120,11 @@ class _CompassPainter extends CustomPainter {
 
     // 指针
     final pointerPaint = Paint()..color = Colors.red..strokeWidth = 3;
-    final top = center + const Offset(0, -radius + 40);
+    final top = center + Offset(0, -radius + 40);
     canvas.drawLine(center, top, pointerPaint);
     
     final bottomPaint = Paint()..color = Colors.grey..strokeWidth = 3;
-    final bottom = center + const Offset(0, radius - 40);
+    final bottom = center + Offset(0, radius - 40);
     canvas.drawLine(center, bottom, bottomPaint);
   }
 

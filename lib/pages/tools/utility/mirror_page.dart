@@ -33,7 +33,7 @@ class _MirrorPageState extends State<MirrorPage> {
                 style: TextStyle(fontSize: 80, shadows: [
                   Shadow(
                     blurRadius: 10,
-                    color: Colors.black.withValues(alpha: 0.2),
+                    color: Colors.black.withOpacity(0.2),
                   ),
                 ]),
               ),
@@ -54,13 +54,13 @@ class _MirrorPageState extends State<MirrorPage> {
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      Colors.white.withValues(alpha: 0.8),
-                      Colors.white.withValues(alpha: 0.1),
+                      Colors.white.withOpacity(0.8),
+                      Colors.white.withOpacity(0.1),
                     ],
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.1),
+                      color: Colors.black.withOpacity(0.1),
                       blurRadius: 20,
                       spreadRadius: 5,
                     ),

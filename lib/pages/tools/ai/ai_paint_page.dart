@@ -63,7 +63,7 @@ class _AiPaintPageState extends State<AiPaintPage> {
   ApiConfig? _getApiConfigForModel(ModelConfig model) {
     final apiProvider = Provider.of<ApiProvider>(context, listen: false);
     try {
-      return apiProvider.configs.firstWhere((c) => c.id == model.apiSourceId);
+      return apiProvider.configs.firstWhere((ApiConfig c) => c.id == model.apiSourceId);
     } catch (e) {
       return null;
     }
@@ -243,7 +243,7 @@ class _AiPaintPageState extends State<AiPaintPage> {
                         final model = models[index];
                         final isActive = model.id == activeId;
                         final apiConfig = apiProvider.configs
-                            .firstWhere((c) => c.id == model.apiSourceId,
+                            .firstWhere((ApiConfig c) => c.id == model.apiSourceId,
                               orElse: () => ApiConfig(id: '', name: '未知'));
                         final hasKey = apiConfig.apiKey.isNotEmpty;
                         
@@ -319,7 +319,7 @@ class _AiPaintPageState extends State<AiPaintPage> {
           final currentModel = modelProvider.activeImageModel;
           final apiConfig = currentModel != null
               ? apiProvider.configs.firstWhere(
-                  (c) => c.id == currentModel.apiSourceId,
+                  (ApiConfig c) => c.id == currentModel.apiSourceId,
                   orElse: () => ApiConfig(id: '', name: '未知'))
               : null;
           

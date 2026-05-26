@@ -69,7 +69,7 @@ class _AiTranslatePageState extends State<AiTranslatePage> {
     }
     
     final apiConfig = apiProvider.configs
-        .firstWhere((c) => c.id == currentModel.apiSourceId,
+        .firstWhere((ApiConfig c) => c.id == currentModel.apiSourceId,
           orElse: () => ApiConfig(id: '', name: '未知'));
     
     if (apiConfig.id.isEmpty || apiConfig.apiKey.isEmpty) {
