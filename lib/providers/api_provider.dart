@@ -179,8 +179,7 @@ class ApiProvider extends ChangeNotifier {
     final idx = _configs.indexWhere((c) => c.id == id);
     if (idx < 0) return;
     final c = _configs[idx];
-    if (name != null) c.name = name;  // 注意：name是final
-    // 由于name是final，需要重建对象
+    // name是final，需要重建对象
     if (apiKey != null || baseUrl != null || model != null || models != null || enabled != null) {
       _configs[idx] = ApiConfig(
         id: c.id,
