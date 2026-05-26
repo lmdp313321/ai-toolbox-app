@@ -1,0 +1,57 @@
+name: ai_toolbox
+description: AI工具箱 - 自用多功能工具集合
+publish_to: 'none'
+version: 3.2.1+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # 状态管理
+  provider: ^6.1.1
+  
+  # 本地存储
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  
+  # 网络请求
+  dio: ^5.4.0
+  http: ^1.1.0
+  
+  # WebView（网页版AI）
+  webview_flutter: ^4.8.0
+  
+  # 文件选择
+  file_picker: ^8.0.0+1
+  image_picker: ^1.0.7
+  
+  # UI组件 - 只用稳定版本
+  flutter_slidable: ^3.0.1
+  fl_chart: ^0.66.0
+  table_calendar: ^3.0.9
+  
+  # 工具类
+  uuid: ^4.2.1
+  url_launcher: ^6.2.2
+  share_plus: ^7.2.1
+  permission_handler: ^11.1.0
+  intl: ^0.19.0
+  crypto: ^3.0.3
+  
+  # Markdown渲染
+  flutter_markdown: ^0.6.18+3
+  
+  # 二维码
+  qr_flutter: ^4.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
