@@ -21,11 +21,9 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       
-      - name: Generate Android project files
-        run: flutter create --org com.example --project-name ai_toolbox --platforms android .
       
       - name: Build release APK (split-per-abi)
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --release --split-per-abi --no-tree-shake-icons
       
       - name: Upload ARM64 APK
         uses: actions/upload-artifact@v4
