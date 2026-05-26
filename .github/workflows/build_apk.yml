@@ -24,14 +24,24 @@ jobs:
       - name: Build APK (debug)
         run: flutter build apk --debug
       
-      - name: Rename APK with version
+      - name: Rename APK
         run: |
           cp build/app/outputs/flutter-apk/app-debug.apk ai-toolbox-v3.2.1.apk
       
-      - name: Upload APK as artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to release
+        uses: softprops/action-gh-release@v2
         with:
-          name: ai-toolbox-apk
-          path: ai-toolbox-v3.2.1.apk
-          compression-level: 0
-          retention-days: 30
+          tag_name: v3.2.1
+          name: "AI工具箱 v3.2.1"
+          body: |
+            ## AI工具箱 v3.2.1
+            
+            56个实用工具，含AI智能、日常助手、开发工具、实用工具四大板块
+            
+            **安装**: 下载APK到手机直接安装
+            **配置**: 首次使用需在设置页配置API Key
+          files: ai-toolbox-v3.2.1.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
