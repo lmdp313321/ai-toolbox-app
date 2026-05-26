@@ -297,3 +297,5 @@ pod install
 ## License
 
 本项目仅供个人学习使用。
+
+> 2026-05-26: 编译模式切换为release(arm64/arm32/x86_64)
