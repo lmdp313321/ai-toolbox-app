@@ -24,9 +24,14 @@ jobs:
       - name: Build APK (debug)
         run: flutter build apk --debug
       
-      - name: Upload APK
+      - name: Rename APK with version
+        run: |
+          cp build/app/outputs/flutter-apk/app-debug.apk ai-toolbox-v3.2.1.apk
+      
+      - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ai-toolbox-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: ai-toolbox-apk
+          path: ai-toolbox-v3.2.1.apk
           compression-level: 0
+          retention-days: 30
