@@ -18,19 +18,35 @@ jobs:
           flutter-version: '3.19.5'
           channel: 'stable'
       
-      - name: Verify Flutter
-        run: flutter doctor
-      
       - name: Install dependencies
         run: flutter pub get
       
-      - name: Debug build (fallback mode)
-        run: flutter build apk --debug
+      - name: Generate Android project files
+        run: flutter create --org com.example --project-name ai_toolbox --platforms android .
       
-      - name: Upload debug APK
+      - name: Build release APK (split-per-abi)
+        run: flutter build apk --release --split-per-abi
+      
+      - name: Upload ARM64 APK
         uses: actions/upload-artifact@v4
         with:
-          name: ai-toolbox-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: ai-toolbox-release-arm64
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+          compression-level: 0
+          retention-days: 30
+      
+      - name: Upload ARM32 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-toolbox-release-armeabi
+          path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+          compression-level: 0
+          retention-days: 30
+      
+      - name: Upload x86_64 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-toolbox-release-x86_64
+          path: build/app/outputs/flutter-apk/app-x86_64-release.apk
           compression-level: 0
           retention-days: 30
