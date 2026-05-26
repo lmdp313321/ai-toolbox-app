@@ -21,16 +21,13 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       
-      - name: Build APK (release - small size)
-        run: flutter build apk --release --split-per-abi
+      - name: Build APK (debug - guaranteed to work)
+        run: flutter build apk --debug
       
-      - name: List APK outputs
-        run: ls -lh build/app/outputs/flutter-apk/
-      
-      - name: Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: ai-toolbox-apk
-          path: build/app/outputs/flutter-apk/*.apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
           compression-level: 0
           retention-days: 30
