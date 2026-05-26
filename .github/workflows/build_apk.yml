@@ -24,28 +24,13 @@ jobs:
       - name: Build APK (release - small size)
         run: flutter build apk --release --split-per-abi
       
-      - name: Show APK sizes
-        run: |
-          ls -lh build/app/outputs/flutter-apk/
-          echo "---"
-          # 选一个最小的上传
-          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk ai-toolbox-release.apk 2>/dev/null || \
-          cp build/app/outputs/flutter-apk/app-release.apk ai-toolbox-release.apk 2>/dev/null || true
+      - name: List APK outputs
+        run: ls -lh build/app/outputs/flutter-apk/
       
-      - name: Upload to release
-        uses: softprops/action-gh-release@v2
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
         with:
-          tag_name: v3.2.1
-          name: "AI工具箱 v3.2.1"
-          body: |
-            ## AI工具箱 v3.2.1
-            
-            56个实用工具，含AI智能、日常助手、开发工具、实用工具四大板块
-            
-            **安装**: 下载APK到手机直接安装
-            **配置**: 首次使用需在设置页配置API Key
-          files: ai-toolbox-release.apk
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: ai-toolbox-apk
+          path: build/app/outputs/flutter-apk/*.apk
+          compression-level: 0
+          retention-days: 30
